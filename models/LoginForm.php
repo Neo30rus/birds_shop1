@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
  */
 class LoginForm extends Model
 {
-    public $login;
+    public $email;
     public $password;
     public $rememberMe = true;
 
@@ -29,9 +29,10 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['login', 'password'], 'required'],
+            [['email', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
+            ['email', 'email'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
@@ -75,7 +76,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = UserRepository::getUserByLogin($this ->login);
+            $this->_user = UserRepository::getUserByEmail($this ->email);
         }
 
         return $this->_user;

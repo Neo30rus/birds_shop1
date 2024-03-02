@@ -8,9 +8,12 @@ use yii\bootstrap4\Html;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<?= $form -> field($model, 'login') -> textInput() ?>
+<?= $form -> field($model, 'email') -> textInput() ?>
 <?= $form -> field($model, 'password') -> passwordInput() ?>
 <?= $form -> field($model, 'passwordRepeat') -> passwordInput() ?>
+<?= $form -> field($model, 'last_name') -> textInput() ?>
+<?= $form -> field($model, 'first_name') -> textInput() ?>
+<?= $form -> field($model, 'patronimic') -> textInput() ?>
 
 
 

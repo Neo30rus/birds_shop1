@@ -5,25 +5,30 @@ use app\repository\UserRepository;
 
 class RegistrationForm extends \yii\base\Model
 {
-    public $login;
+    public $email;
     public $password;
     public $passwordRepeat;
+    public $last_name;
+    public $first_name;
+    public $patronimic;
 
 
 
     public function rules()
     {
         return [
-          [['login','password','passwordRepeat'] , 'required',],
+          [['email','last_name','first_name','password','passwordRepeat'] , 'required',],
           ['passwordRepeat','compare','compareAttribute' => 'password'],
-          ['login','validateLogin']
+          ['patronimic','string'],
+          ['email','email'],
+          ['email','validateEmail']
         ];
     }
 
-    public function validateLogin($attribute, $params)
+    public function validateEmail($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $user = UserRepository::getUserByLogin($this -> login);
+            $user = UserRepository::getUserByEmail($this -> email);
 
             if ($user) {
                 $this->addError($attribute, 'Пользователь существувет');

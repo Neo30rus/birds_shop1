@@ -47,7 +47,7 @@ AppAsset::register($this);
         $items[] = '<li class = "nav-item">'
             . HTml::beginForm(['/site/logout'])
             . Html::submitButton(
-                    'Выход('. Yii::$app->user->identity->login . ')',
+                    'Выход('. Yii::$app->user->identity->email . ')',
                 ['class'=>'nav-link btn btn-link logout']
             )
             . Html::endForm()
