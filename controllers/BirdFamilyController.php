@@ -2,16 +2,16 @@
 
 namespace app\controllers;
 
-use app\entity\DirProductType;
+use app\entity\DirFamilyBird;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DirController implements the CRUD actions for DirProductType model.
+ * BirdFamilyController implements the CRUD actions for DirFamilyBird model.
  */
-class DirController extends Controller
+class BirdFamilyController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,14 +32,14 @@ class DirController extends Controller
     }
 
     /**
-     * Lists all DirProductType models.
+     * Lists all DirFamilyBird models.
      *
      * @return string
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => DirProductType::find(),
+            'query' => DirFamilyBird::find(),
             /*
             'pagination' => [
                 'pageSize' => 50
@@ -58,7 +58,7 @@ class DirController extends Controller
     }
 
     /**
-     * Displays a single DirProductType model.
+     * Displays a single DirFamilyBird model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -71,13 +71,13 @@ class DirController extends Controller
     }
 
     /**
-     * Creates a new DirProductType model.
+     * Creates a new DirFamilyBird model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new DirProductType();
+        $model = new DirFamilyBird();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -93,7 +93,7 @@ class DirController extends Controller
     }
 
     /**
-     * Updates an existing DirProductType model.
+     * Updates an existing DirFamilyBird model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -113,7 +113,7 @@ class DirController extends Controller
     }
 
     /**
-     * Deletes an existing DirProductType model.
+     * Deletes an existing DirFamilyBird model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -127,15 +127,15 @@ class DirController extends Controller
     }
 
     /**
-     * Finds the DirProductType model based on its primary key value.
+     * Finds the DirFamilyBird model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return DirProductType the loaded model
+     * @return DirFamilyBird the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = DirProductType::findOne(['id' => $id])) !== null) {
+        if (($model = DirFamilyBird::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
