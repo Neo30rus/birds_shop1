@@ -26,4 +26,10 @@ class ShopRepository
         }
         return $cart;
     }
+    public static function buyCart($cart_id){
+        $cart= Cart::findOne($cart_id);
+        $cart->is_paid= true;
+        $cart->save();
+
+    }
 }

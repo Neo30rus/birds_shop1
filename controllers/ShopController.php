@@ -85,5 +85,15 @@ class ShopController extends \yii\web\Controller
          $cart=ShopRepository::getCart(\Yii::$app->user->id);
          ShopRepository::addToCart($cart->id,$bird_id,$product_id);
         }
+        return $this->redirect('/shop/cart');
+    }
+    public function actionCart(){
+        $cart=ShopRepository::getCart(\Yii::$app->user->id);
+        return $this->render('cart',['cart'=>$cart]);
+    }
+    public function actionBuyCart(){
+        $user_id=\Yii::$app->user->id;
+        $cart=ShopRepository::getCart($user_id);
+        ShopRepository::buyCart($cart->id);
     }
 }

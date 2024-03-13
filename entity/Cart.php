@@ -72,4 +72,16 @@ class Cart extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Users::class, ['id' => 'user_id']);
     }
+    public function getProducts()
+    {
+        return $this->hasMany(Product::class, ['id' => 'product_id'])
+            ->viaTable(ProductToCart::tableName(),['cart_id'=>'id']);
+    }
+
+    public function getBirds()
+    {
+        return $this->hasMany(Birds::class, ['id' => 'bird_id'])
+            ->viaTable(ProductToCart::tableName(),['cart_id'=>'id']);
+    }
+
 }
