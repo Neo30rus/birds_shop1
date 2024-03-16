@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\entity\DirFamilyBird;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,15 @@ class BirdFamilyController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access'=>[
+                    'class'=> AccessControl::class,
+                    'rules' =>[
+                        [
+                            'allow'=> true,
+                            'roles' => ['admin']
+                        ]
+                    ]
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [

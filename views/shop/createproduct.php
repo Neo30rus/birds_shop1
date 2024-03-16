@@ -15,6 +15,9 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'type_id')->dropDownList($types) ?>
         <?= $form->field($model, 'price') ?>
         <?= $form->field($model, 'description') ?>
+    <?= $form->field($model, 'image')->fileInput([
+        'value'=> \yii\web\UploadedFile::getInstance($model,'image')
+    ]) ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

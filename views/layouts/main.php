@@ -38,17 +38,33 @@ AppAsset::register($this);
     $items = [
         ['label' => 'Главная', 'url' => ['/site/index']],
         ['label' => 'О нас', 'url' => ['/site/about']],
-        ['label' => 'Контакты', 'url' => ['/site/contact']],
+        ['label' => 'Экзотические Птицы', 'url' => ['/shop/birds']],
+        ['label' => 'Товары', 'url' => ['/shop/product']],
     ];
     if (Yii::$app->user->isGuest) {
         $items[] = ['label' => 'Авторизация', 'url' => ['/site/login']];
         $items[] = ['label' => 'Регистрация', 'url' => ['/site/registration']];
-    } else{
+    } else {
+        if (Yii::$app->user->can('admin')) {
+            $items[] = [
+                'label' => 'Справочники',
+                'items' => [
+                    ['label' => 'Цвета птиц', 'url' => ['/bird-color']],
+                    ['label' => 'Виды птиц', 'url' => ['/bird-type']],
+                    ['label' => 'Семейство', 'url' => ['/bird-family']],
+                    ['label' => 'Виды продуктов', 'url' => ['/types']],
+                ],
+                'options' => [
+                    'class' => 'drop-list',
+                ]
+            ];
+        }
+        $items[] = ['label' => 'Корзина', 'url' => ['/shop/cart']];
         $items[] = '<li class = "nav-item">'
             . HTml::beginForm(['/site/logout'])
             . Html::submitButton(
-                    'Выход('. Yii::$app->user->identity->email . ')',
-                ['class'=>'nav-link btn btn-link logout']
+                'Выход(' . Yii::$app->user->identity->email . ')',
+                ['class' => 'nav-link btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
@@ -56,7 +72,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => $items
-        ]);
+    ]);
     NavBar::end();
     ?>
 </header>
