@@ -8,42 +8,66 @@ use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n{input}\n{error}",
-            'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
-            'inputOptions' => ['class' => 'col-lg-3 form-control'],
-            'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
-        ],
-    ]); ?>
-
-        <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
-
-        <?= $form->field($model, 'password')->passwordInput() ?>
-
-        <?= $form->field($model, 'rememberMe')->checkbox([
-            'template' => "<div class=\"offset-lg-1 col-lg-3 custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ]) ?>
-
-        <div class="form-group">
-            <div class="offset-lg-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+<div class="page-header-area" data-bg-img="assets/img/photos/bg1.webp">
+    <div class="container pt--0 pb--0">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header-content">
+                    <h2 class="title">Login</h2>
+                    <nav class="breadcrumb-area">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-sep">//</li>
+                            <li>Login</li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
-
-    <?php ActiveForm::end(); ?>
-
-    <div class="offset-lg-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
     </div>
 </div>
+<section class="account-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="login-form-content">
+                    <?php $form = ActiveForm::begin([
+                        'id' => 'login-form',
+                        'layout' => 'horizontal',
+
+                    ]); ?>
+                        <div class="row">
+                            <div class="col-12">
+                                <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+
+                            </div>
+                            <div class="col-12">
+                                <?= $form->field($model, 'password')->passwordInput() ?>
+
+                            </div>
+                            <div class="col-12">
+
+                                <div class="form-group">
+
+                                        <?= Html::submitButton('Login', ['class' => 'btn-login', 'name' => 'login-button']) ?>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group account-info-group mb--0">
+                                    <div class="rememberme-account">
+                                        <?= $form->field($model, 'rememberMe')->checkbox([
+                                            'template' => "<div class=\"offset-lg-1 col-lg-3 custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                                        ]) ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
