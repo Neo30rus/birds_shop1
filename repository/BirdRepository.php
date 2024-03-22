@@ -10,6 +10,10 @@ class BirdRepository
   public static function getBirds(){
       return Birds::find()->all();
   }
+
+  public static function getBirdById($id){
+      return Birds::find()->where(['id' => $id])->one();
+  }
   public static function createBird ($title,$type_id,$color_id,$family_id,$price,$description=null){
       $birds = new Birds();
       $birds->title = $title;

@@ -9,6 +9,9 @@ class ProductRepository
   public static function getProducts(){
       return Product::find()->all();
   }
+  public static function getProductById($id){
+      return Product::find()->where(['id' => $id])->one();
+  }
   public static function createProduct ($title,$type_id,$price,$description=null){
       $product = new Product();
       $product->title = $title;

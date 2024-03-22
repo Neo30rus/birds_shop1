@@ -19,12 +19,12 @@
                                         <!--== Start Product Item ==-->
                                         <div class="product-item">
                                             <div class="product-thumb">
-                                                <a href="single-product.html">
+                                                <a href="/shop/bird?id=<?=$bird->id?>">
                                                     <img src="/shop/image?dir=birds&id=<?=$bird->id?>" width="270" height="320" alt="Image-HasTech">
                                                 </a>
                                             </div>
                                             <div class="product-info">
-                                                <h4 class="title"><a href="single-product.html"><?=$bird->title?></a></h4>
+                                                <h4 class="title"><a href="/shop/bird?id=<?=$bird->id?>"><?=$bird->title?></a></h4>
                                                 <div class="prices">
                                                     <span class="price"><?=$bird->price?> руб.</span>
                                                 </div>
@@ -36,7 +36,7 @@
                                                         <i class="pe-7s-shopbag"></i>
                                                     </button>
                                                     </a>
-                                                    <a href="/shop/add-to-cart?bird_id=<?=$bird->id?>">
+                                                    <a href="/shop/bird?id=<?=$bird->id?>">
                                                     <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
                                                         <i class="pe-7s-look"></i>
                                                     </button>

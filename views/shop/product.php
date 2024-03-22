@@ -21,7 +21,7 @@
                                             <!--== Start Product Item ==-->
                                             <div class="product-item">
                                                 <div class="product-thumb">
-                                                    <a href="single-product.html">
+                                                    <a href="/shop/image?dir=products&id=<?=$product->id?>">
                                                         <img src="/shop/image?dir=products&id=<?=$product->id?>" width="270" height="320" alt="Image-HasTech">
                                                     </a>
                                                 </div>
@@ -38,7 +38,7 @@
                                                                 <i class="pe-7s-shopbag"></i>
                                                             </button>
                                                         </a>
-                                                        <a href="/shop/add-to-cart?product_id=<?=$product->id?>">
+                                                        <a href="/shop/product-page?id=<?=$product->id?>">
                                                             <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
                                                                 <i class="pe-7s-look"></i>
                                                             </button>

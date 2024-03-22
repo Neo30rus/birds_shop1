@@ -48,6 +48,11 @@ class ShopController extends \yii\web\Controller
         return $this->render('product', ['products' => $product]);
     }
 
+    public function actionProductPage($id){
+        $product = ProductRepository::getProductById($id);
+        return $this->render('productPage', ['product' => $product]);
+    }
+
     public function actionCreateProduct()
     {
         $model = new ProductForm();
@@ -84,6 +89,11 @@ class ShopController extends \yii\web\Controller
     {
         $birds = BirdRepository::getBirds();
         return $this->render('birds', ['birds' => $birds]);
+    }
+
+    public function actionBird($id){
+        $bird = BirdRepository::getBirdById($id);
+        return $this->render('bird', ['bird' => $bird]);
     }
 
     public function actionCreateBird()

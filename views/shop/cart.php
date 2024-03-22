@@ -2,7 +2,6 @@
 
 ?>
 
-<a href="/shop/buy-cart">Покупка</a>
 <section class="shopping-cart-area">
     <div class="container">
         <div class="row">
@@ -12,12 +11,9 @@
                         <table class="table text-center">
                             <thead>
                             <tr>
-
                                 <th class="product-thumbnail">&nbsp;</th>
                                 <th class="product-name">Птицы</th>
                                 <th class="product-price">Цена</th>
-
-
                             </tr>
                             </thead>
                             <tbody>
@@ -25,13 +21,13 @@
                             <tr class="tbody-item">
                                 <td class="product-thumbnail">
                                     <div class="thumb">
-                                        <a href="single-product.html">
-                                            <img src="assets/img/shop/product-mini/cart1.webp" width="75" height="75" alt="Image-HasTech">
+                                        <a href="/shop/image?dir=birds&id=<?=$bird->id?>">
+                                            <img src="/shop/image?dir=birds&id=<?=$bird->id?>" width="75" height="75" alt="Image-HasTech">
                                         </a>
                                     </div>
                                 </td>
                                 <td class="product-name">
-                                    <a class="title" href="single-product.html"><?=$bird->title?></a>
+                                    <a class="title" href="/shop/bird?id=<?=$bird->id?>"><?=$bird->title?></a>
                                 </td>
                                 <td class="product-price">
                                     <span class="price"><?=$bird->price?></span>
@@ -47,13 +43,13 @@
                                 <tr class="tbody-item">
                                     <td class="product-thumbnail">
                                         <div class="thumb">
-                                            <a href="single-product.html">
-                                                <img src="assets/img/shop/product-mini/cart1.webp" width="75" height="75" alt="Image-HasTech">
+                                            <a href="/shop/image?dir=products&id=<?=$product->id?>">
+                                                <img src="/shop/image?dir=products&id=<?=$product->id?>" width="75" height="75" alt="Image-HasTech">
                                             </a>
                                         </div>
                                     </td>
                                     <td class="product-name">
-                                        <a class="title" href="single-product.html"><?=$product->title?></a>
+                                        <a class="title" href="/shop/product-page?id=<?=$product->id?>"><?=$product->title?></a>
                                     </td>
                                     <td class="product-price">
                                         <span class="price"><?=$product->price?></span>
